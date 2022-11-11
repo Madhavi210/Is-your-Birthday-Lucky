@@ -1,0 +1,60 @@
+h1{
+    text-align: center;
+    background-color: beige;
+    margin:auto;
+    padding: 2%;
+    margin-bottom: 5%;
+}
+
+.container{
+    width: 80%;
+    height: 50%;
+    margin:auto; 
+    /* background-color: #fce7f3; */
+
+}
+input,label
+{
+   display: block;
+   
+}
+input{
+    margin-bottom: 0.5rem;
+    text-align: center;
+}
+
+#check-btn{
+    display: block;
+    margin-top:0.5rem;
+    margin-bottom:1rem;
+    margin:auto;
+    text-decoration: black;
+    
+
+}
+
+body{
+    background-color: white;
+    text-align: center;
+    color:black;
+    
+}
+#date-of-birth{
+    align-self: center;
+    border: solid black 2px;
+    display: block;
+    
+
+}
+
+#lucky-number{
+    align-self: center;
+    border: solid black 2px;
+}
+.column1{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    /* background-color: #fce7f3; */
+}
