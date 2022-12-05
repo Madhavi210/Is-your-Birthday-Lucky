@@ -16,7 +16,7 @@ const luckyNumber = (sumdate, numbercheck) => {
   if (sumdate % numbercheck === 0) {
     return Message(`Horray !!! ${numbercheck} is a lucky number!! 🥳 🥳 🥳 `);
   }
-  Message(`Oops! ${numbercheck} is not that lucky 😕`);
+  Message(`Oops! ${numbercheck} is not that lucky 😕😕`);
 };
 
 const Message = (message) => {
