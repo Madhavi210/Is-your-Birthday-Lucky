@@ -1,41 +1,39 @@
-const dateofBirth = document.querySelector ("#date-of-birth");
-const luckynumber = document.querySelector("#lucky-number");
-const checkbutton = document.querySelector("#check-btn");
-const outputbox = document.querySelector("#output-box");
+const date = document.querySelector("#birthdate");
+const number = document.querySelector("#number");
+const cont = document.querySelector("#hidden");
+const btn = document.querySelector("#btn");
 
-function compareValues(sum,luckynumber){
-    if(sum%luckynumber === 0){
-        outputbox.innerText = "your birthday is lucky  💗";
+const calsum = (values) => {
+  let sum = 0;
+  values = values.replaceAll("-", "");
+  for (let digit of values) {
+    sum = sum + Number(digit);
+  }
+  return sum;
+};
 
-    }
-    else{
-        outputbox.innerText ="try another lucky number 😉" ;
-}
-}
+const luckyNumber = (sumdate, numbercheck) => {
+  if (sumdate % numbercheck === 0) {
+    return Message(`Horray !!! ${numbercheck} is a lucky number!! 🥳 🥳 🥳 `);
+  }
+  Message(`Oops! ${numbercheck} is not that lucky 😕`);
+};
 
-function luckyBirthdate(){
+const Message = (message) => {
+  cont.innerText = message;
+};
 
-    const bdate = dateofBirth.value;
-    const sum = calculateSum(bdate);
-    if(sum && bdate){ 
-    compareValues(sum,luckynumber.value);
-    }
-    else
-    {
-    outputbox.innerText = "please enter both the fields"  ;  
-}
-}
-
-function calculateSum(bdate){
-    bdate = bdate.replaceAll("-","");
-    let sum = 0 ;
-    for(let index=0;index<bdate.length;index++){
-        sum = sum + Number(bdate.charAt(index));
-    }
-
-    return sum;
-
-}
-
-
-checkbutton.addEventListener('click',luckyBirthdate);
+btn.addEventListener("click", () => {
+  const newdate = date.value;
+  const numbercheck = number.value;
+  if (numbercheck <= 0) {
+    Message("Please enter value greater than 0");
+    return;
+  }
+  if (newdate && numbercheck) {
+    const sumOfDate = calsum(newdate);
+    luckyNumber(sumOfDate, numbercheck);
+  } else {
+    Message("Please enter both the fields");
+  }
+});
